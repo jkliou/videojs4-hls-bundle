@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <link rel="stylesheet" href="../dist/css/video-js.min.css"/>
+
+    <script src="../dist/js/vtt.min.js"></script>
+    <script src="../dist/js/videojs.js"></script>
+    <script src="../dist/js/videojs.ga.js"></script>
+    <script src="../dist/js/videojs.hls.js"></script>
+</head>
+<body>
+<div>
+    <video id="player" class="video-js vjs-default-skin"></video>
+</div>
+<script>
+    (function(w) {
+        var videojs = w.videojs;
+        var player, sendBeacon;
+
+        videojs.options.flash.swf = '../dist/swf/video-js.swf';
+        videojs('player', {width: 640, height: 400, techOrder: ['hlsJs', 'hls', 'html5', 'flash']}, function() {
+            player = this;
+            // exposing sendbeacon() function
+            sendBeacon = player.ga({debug: true}).sendbeacon;
+            // initilizing volume persistance
+            player.persistvolume({namespace: 'videojs-volume'});
+            player.controls(true);
+            player.src({
+                type: 'application/x-mpegURL',
+                src: 'http://playertest.longtailvideo.com/adaptive/bbbfull/bbbfull.m3u8'
+            });
+            player.on('loadedmetadata', function() {
+                player.play();
+            })
+        });
+    })(window);
+</script>
+</body>
+</html>

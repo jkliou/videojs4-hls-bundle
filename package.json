@@ -1,0 +1,129 @@
+{
+  "name": "videojs-hls-bundle",
+  "version": "0.0.6",
+  "description": "Just a todo demo for gulp+browserify videojs and videojs-contrib-hls bundling",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jack Liou <jkliou@gmail.com>",
+  "license": "WTFPL",
+  "dependencies": {
+    "hls.js": "https://github.com/jkliou/hls.js#v0.3.15",
+    "videojs-hlsjs": "git+https://github.com/jkliou/videojs4-hlsjs#0.0.2",
+    "pkcs7": "^0.2.3",
+    "video.js": "git://github.com/jkliou/video.js/#feature/v4.12.15-subscribe",
+    "videojs-contrib-hls": "^0.17.9",
+    "videojs-contrib-media-sources": "^1.0.0",
+    "videojs-ga": "mickey/videojs-ga",
+    "videojs-persistvolume": "git://github.com/jkliou/videojs-persistvolume#0796fe517c83ae384b2711f90cf416c6aa5e2f7d",
+    "videojs-swf": "^4.7.2",
+    "vtt.js": "^0.12.1"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.6.4",
+    "browserify": "^9.0.8",
+    "browserify-shim": "^3.8.5",
+    "bundle-collapser": "^1.2.1",
+    "gulp": "^3.8.11",
+    "gulp-util": "^3.0.4",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "browser": {
+    "videojs/video-js": "./node_modules/video.js/dist/video-js/video.dev.js",
+    "videojs/videojs-hlsjs.js": "./node_modules/videojs4-hlsjs/dist/videojs4-hlsjs.js",
+    "videojs-ga": "./node_modules/videojs-ga/dist/videojs.ga.js",
+    "contrib/hls/videojs-hls": "./node_modules/videojs-contrib-hls/src/videojs-hls.js",
+    "contrib/hls/stream": "./node_modules/videojs-contrib-hls/src/stream.js",
+    "contrib/hls/flv-tag": "./node_modules/videojs-contrib-hls/src/flv-tag.js",
+    "contrib/hls/exp-golomb": "./node_modules/videojs-contrib-hls/src/exp-golomb.js",
+    "contrib/hls/h264-extradata": "./node_modules/videojs-contrib-hls/src/h264-extradata.js",
+    "contrib/hls/h264-stream": "./node_modules/videojs-contrib-hls/src/h264-stream.js",
+    "contrib/hls/aac-stream": "./node_modules/videojs-contrib-hls/src/aac-stream.js",
+    "contrib/hls/metadata-stream": "./node_modules/videojs-contrib-hls/src/metadata-stream.js",
+    "contrib/hls/segment-parser": "./node_modules/videojs-contrib-hls/src/segment-parser.js",
+    "contrib/hls/m3u8/m3u8-parser": "./node_modules/videojs-contrib-hls/src/m3u8/m3u8-parser.js",
+    "contrib/hls/xhr": "./node_modules/videojs-contrib-hls/src/xhr.js",
+    "contrib/hls/playlist": "./node_modules/videojs-contrib-hls/src/playlist.js",
+    "contrib/hls/playlist-loader": "./node_modules/videojs-contrib-hls/src/playlist-loader.js",
+    "contrib/hls/decrypter": "./node_modules/videojs-contrib-hls/src/decrypter.js",
+    "contrib/media-sources": "./node_modules/videojs-contrib-media-sources/src/videojs-media-sources.js"
+  },
+  "browserify-shim": {
+    "videojs-ga": {
+      "depends": [
+        "videojs/video-js:videojs"
+      ]
+    },
+    "contrib/hls/videojs-hls": {
+      "depends": [
+        "videojs/video-js:videojs"
+      ]
+    },
+    "contrib/hls/stream": {
+      "depends": [
+        "videojs/video-js:videojs"
+      ]
+    },
+    "contrib/hls/flv-tag": {
+      "depends": [
+        "videojs/video-js:videojs"
+      ]
+    },
+    "contrib/hls/exp-golomb": {
+      "depends": [
+        "videojs/video-js:videojs"
+      ]
+    },
+    "contrib/hls/h264-stream": {
+      "depends": [
+        "videojs/video-js:videojs"
+      ]
+    },
+    "contrib/hls/aac-stream": {
+      "depends": [
+        "videojs/video-js:videojs"
+      ]
+    },
+    "contrib/hls/metadata-stream": {
+      "depends": [
+        "videojs/video-js:videojs"
+      ]
+    },
+    "contrib/hls/segment-parser": {
+      "depends": [
+        "videojs/video-js:videojs"
+      ]
+    },
+    "contrib/hls/m3u8/m3u8-parser": {
+      "depends": [
+        "videojs/video-js:videojs"
+      ]
+    },
+    "contrib/hls/xhr": {
+      "depends": [
+        "videojs/video-js:videojs"
+      ]
+    },
+    "contrib/hls/playlist-loader": {
+      "depends": [
+        "videojs/video-js:videojs"
+      ]
+    },
+    "contrib/hls/decrypter": {
+      "depends": [
+        "videojs/video-js:videojs"
+      ]
+    },
+    "contrib/media-sources": {
+      "depends": [
+        "videojs/video-js:videojs"
+      ]
+    }
+  }
+}
